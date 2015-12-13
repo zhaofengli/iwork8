@@ -1,0 +1,10 @@
+[Unit]
+Description=Suspend hack
+After=gdm3.service
+
+[Service]
+Type=simple
+ExecStart=/bin/systemctl suspend
+
+[Install]
+WantedBy=default.target

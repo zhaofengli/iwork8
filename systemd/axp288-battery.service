@@ -1,0 +1,9 @@
+[Unit]
+Description=AXP288 battery level
+
+[Service]
+Type=simple
+ExecStart=/opt/iwork8/scripts/battery.sh
+
+[Install]
+WantedBy=default.target
