@@ -13,11 +13,11 @@ Note: I used a self-compiled 4.4.0-r2 kernel from the [drm-intel-nightly](http:/
 - [3D acceleration](#3d-acceleration) (with a dirty workaround)
 - [Wi-Fi](#wi-fi) (with kernel patches and [hadess's rtl8723bs driver](https://github.com/hadess/rtl8723bs))
 - SD card reader (with kernel patches in the Wi-Fi section)
-- [Backlight](#backlight) (kinda "works", by manually adjusting with `xrandr`)
-- [Battery status](#battery-status) (again, kinda "works" :/)
+- [Battery status](#battery-status) (kinda "works" :/)
 
 ### Not (yet) working
 - [Sound](#sound)
+- [Backlight](#backlight) (software only, by manually adjusting with `xrandr`)
 - Bluetooth
 - Camera
 - Suspending to RAM
@@ -36,7 +36,7 @@ Relevant thread: https://bugs.freedesktop.org/show_bug.cgi?id=71977 (and no, non
 [hadess's rtl8723bs driver](https://github.com/hadess/rtl8723bs) is required to make Wi-Fi work. Apply the patches in the `patches` directory, then build and install the patched kernel and the module as usual. Note that in `0004-mmc-sdhci-pci-Fix-device-hang-on-Intel-BayTrail.patch`, you will need to change `sdhci-pci.c` to `sdhci-pci-core.c` in order to apply the patch to 4.4.0.
 
 ### Backlight
-You can manually adjust the backlight with `xrandr --output DSI1 --brightness [a value from .1 to 1]`. However, it's not possible to complete turn off the display, even if you set the brightness all the way down to 0.
+ACPI brightness adjustment is not supported. You can manually "adjust" the backlight with `xrandr --output DSI1 --brightness [a value from .1 to 1]`. However, it's not possible to complete turn off the display, even if you set the brightness all the way down to 0.
 
 ### Battery status
 The device uses AXP288 as its PMIC. For some reason, the `axp288_fuel_gauge` driver isn't working (compile your own kernel with if you think you have better luck). You can, however, get the battery reading using `i2cget`, and feed it into the `test_power` module. I've made a script (`scripts/battery.sh`) to do that periodically.
