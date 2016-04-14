@@ -20,9 +20,14 @@ do
 		if [ $CHGCURR -eq 0 ]; then
 			echo "(discharging)"
 			echo discharging>/sys/module/test_power/parameters/battery_status
+			echo off >/sys/module/test_power/parameters/usb_online
+			echo off >/sys/module/test_power/parameters/ac_online
+
 		else
 			echo "(charging)"
 			echo charging>/sys/module/test_power/parameters/battery_status
+			echo on >/sys/module/test_power/parameters/usb_online
+			echo on >/sys/module/test_power/parameters/ac_online
 		fi
 	fi
 	sleep 120
