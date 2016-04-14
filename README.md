@@ -23,7 +23,7 @@ Note: I used a self-compiled 4.4.0-r2 kernel from the [drm-intel-nightly](http:/
 - Suspending to RAM
 
 ## Installation
-Download [the multi-arch Jessie image](http://cdimage.debian.org/cdimage/release/current/multi-arch/iso-dvd/debian-8.2.0-i386-amd64-source-DVD-1.iso) and write it onto a USB stick with `dd`. Installation will "just work" (Select *64-bit install* if you wish). Touchscreen should work during the progress, but a USB keyboard is required as the installation environment does not provide a on-screen keyboard. Answer no when asked whether to use a mirror.
+Download [the multi-arch Jessie image](http://cdimage.debian.org/cdimage/release/current/multi-arch/iso-dvd/debian-8.2.0-i386-amd64-source-DVD-1.iso) and write it onto a USB stick with `dd`. Installation will "just work" (Select *64-bit install* if you wish). Touchscreen should work during the progress, but a USB keyboard is required as the installation environment does not provide an on-screen keyboard. Answer no when asked whether to use a mirror.
 
 ## Getting things to work
 ### 3D acceleration
@@ -39,12 +39,12 @@ Relevant thread: https://bugs.freedesktop.org/show_bug.cgi?id=71977 (and no, non
 ACPI brightness adjustment is not supported. You can manually "adjust" the backlight with `xrandr --output DSI1 --brightness [a value from .1 to 1]`. However, it's not possible to complete turn off the display, even if you set the brightness all the way down to 0.
 
 ### Battery status
-The device uses AXP288 as its PMIC. For some reason, the `axp288_fuel_gauge` driver isn't working (compile your own kernel with if you think you have better luck). You can, however, get the battery reading using `i2cget`, and feed it into the `test_power` module. I've made a script (`scripts/battery.sh`) to do that periodically.
+The device uses AXP288 as its PMIC. For some reason, the `axp288_fuel_gauge` driver isn't working (compile your own kernel if you think you have better luck). You can, however, get the battery reading using `i2cget`, and feed it into the `test_power` module. I've made a script (`scripts/battery.sh`) to do that periodically.
 
 Related thread: https://bugzilla.kernel.org/show_bug.cgi?id=88471
 
 ### Sound
-Still working to make it work. I've attahced the ELF firmware included in the Android image in `firmware` (no longer works with upstream drivers).
+Still working to make it work. I've attached the ELF firmware included in the Android image in `firmware` (no longer works with upstream drivers).
 
 Related thread: http://thread.gmane.org/gmane.linux.alsa.devel/134554
 
