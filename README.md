@@ -33,7 +33,7 @@ Relevant logs will be attached later.
 Relevant thread: https://bugs.freedesktop.org/show_bug.cgi?id=71977 (and no, none of the workarounds work on recent kernels)
 
 ### Wi-Fi
-[hadess's rtl8723bs driver](https://github.com/hadess/rtl8723bs) is required to make Wi-Fi work. Apply the patches in the `patches` directory, then build and install the patched kernel and the module as usual. Note that in `0004-mmc-sdhci-pci-Fix-device-hang-on-Intel-BayTrail.patch`, you will need to change `sdhci-pci.c` to `sdhci-pci-core.c` in order to apply the patch to 4.4.0.
+[hadess's rtl8723bs driver](https://github.com/hadess/rtl8723bs) is required to make Wi-Fi work. Apply the patches in the `patches` directory, then build and install the patched kernel and the module as usual.
 
 ### Backlight
 ACPI brightness adjustment is not supported. You can manually "adjust" the backlight with `xrandr --output DSI1 --brightness [a value from .1 to 1]`. However, it's not possible to complete turn off the display, even if you set the brightness all the way down to 0.
